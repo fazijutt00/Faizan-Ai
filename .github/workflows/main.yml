@@ -14,7 +14,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [18.x]   # ⬅️ یہاں 20.x کو 18.x کر دیا
+        node-version: [20.x]
 
     steps:
     - name: Checkout repository
