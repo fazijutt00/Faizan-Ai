@@ -5,8 +5,10 @@ module.exports = {
 
   async before(m, sock) {
     try {
+      // ✅ Ignore bot’s own messages
       if (m.key.fromMe) return;
 
+      // ✅ React with ❤️ on every message
       await sock.sendMessage(m.chat, {
         react: {
           text: "❤️",
@@ -14,10 +16,10 @@ module.exports = {
         }
       });
 
-      console.log("✅ Auto Reacted with ❤️");
+      console.log("❤️ Auto-react sent!");
 
     } catch (err) {
-      console.error("❌ Auto-react plugin error:", err);
+      console.error("❌ Auto-react error:", err);
     }
   }
 };
