@@ -1,5 +1,3 @@
-name: Node.js CI
-
 on:
   push:
     branches:
@@ -10,24 +8,27 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     strategy:
       matrix:
-        node-version: [20.x]
+        node-version: [20.x]   # ⚡ یہاں Node 20 لگا ہے
 
     steps:
-    - name: Checkout repository
+    - name: 🛎️ Checkout repository
       uses: actions/checkout@v3
 
-    - name: Set up Node.js
+    - name: 🟢 Set up Node.js
       uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
 
-    - name: Install dependencies
+    - name: 📦 Install dependencies
       run: npm install
 
-    - name: Start application
-      run: node.js
+    - name: 🧼 Fix vulnerabilities (optional)
+      run: npm audit fix || true
+
+    - name: 🚀 Start application
+      run: node index.js
+Merge branch 'Faizan-MD-BOTZ:main' into main · fazijutt00/Faizan-Ai@563b256
